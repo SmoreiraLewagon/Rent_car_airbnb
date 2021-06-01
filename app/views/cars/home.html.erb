@@ -1,4 +1,8 @@
 <h1>Main page</h1>
+<%= cl_image_tag("chi5fyjvmp3o7fbbijep",
+      width: 400, height: 300, crop: :fill) %>
+<%= cl_image_tag("x75tipmnmhd8k9kpafxn",
+      width: 400, height: 300, crop: :fill) %>
 <% @cars.each do |car| %>
 <p><%= "The model of the car: #{car.model} - The year: #{car.year}"%>
   <%= link_to 'delete', car_path(car), method: :delete %>
