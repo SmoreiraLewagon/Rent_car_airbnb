@@ -1,8 +1,10 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :destroy]
   skip_before_action :authenticate_user!, only: :home
+
   def home
-    @cars = Car.all
+    @cars = policy_scope(Car).order(created_at: :desc)
+
   end
 
   def show
@@ -11,11 +13,13 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
+    authorize @car
   end
 
  def create
     @car = Car.new(car_params)
     @car.user = current_user
+    authorize @car
     if @car.save
       redirect_to root_path
     else
@@ -32,6 +36,7 @@ class CarsController < ApplicationController
 
   def set_car
     @car = Car.find(params[:id])
+    authorize @car
   end
 
   def car_params
