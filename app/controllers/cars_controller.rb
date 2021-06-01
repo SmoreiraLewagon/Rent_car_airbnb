@@ -4,7 +4,6 @@ class CarsController < ApplicationController
 
   def home
     @cars = policy_scope(Car).order(created_at: :desc)
-
   end
 
   def show
