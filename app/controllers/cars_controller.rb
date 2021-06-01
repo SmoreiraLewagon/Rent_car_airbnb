@@ -17,7 +17,7 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save
-      redirect_to root_path
+      redirect_to root_path, notice: "car created"
     else
       render :new
     end
