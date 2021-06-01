@@ -4,4 +4,5 @@ class Car < ApplicationRecord
   validates :year, presence: true
   validates :location, presence: true
   validates :km, presence: true
+  has_one_attached :photo
 end

@@ -1,11 +1,8 @@
-<%= form_for(@car) do |f| %>
-  <%= f.label :model %>
-  <%= f.text_field :model %>
-  <%= f.label :year %>
-  <%= f.number_field :year %>
-  <%= f.label :km %>
-  <%= f.number_field :km %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
+<%= simple_form_for(@car) do |f| %>
+  <%= f.input :model %>
+  <%= f.input :year %>
+  <%= f.input :km %>
+  <%= f.input :location %>
+  <%= f.input :picture %>
   <%= f.submit %>
 <% end %>
