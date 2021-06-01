@@ -8,16 +8,17 @@
 
 require 'faker'
 Car.destroy_all
+User.destroy_all
+
 puts 'Creating 20 fake cars...'
-
-
+first_user = User.create(user_name: 'Zezin', password: '123456', email: 'ze@ninguem.com')
 20.times do
   car = Car.new(
     model:    Faker::Vehicle.make_and_model,
     year:    rand(1950..2021),
     km:    rand(12_000..180_000),
     location:    "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    user_id: 5
+    user_id: first_user.id
   )
   car.save!
   puts "#{car.id} #{car.model}"
