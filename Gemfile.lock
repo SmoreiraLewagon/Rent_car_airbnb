@@ -61,6 +61,7 @@ GEM
     autoprefixer-rails (10.2.5.0)
       execjs (< 2.8.0)
     bcrypt (3.1.16)
+    bigdecimal (3.0.2)
     bindex (0.8.1)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
@@ -84,6 +85,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    digest (3.0.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
@@ -234,10 +236,12 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
+  bigdecimal
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
   devise
+  digest
   dotenv-rails
   font-awesome-sass
   jbuilder (~> 2.7)
