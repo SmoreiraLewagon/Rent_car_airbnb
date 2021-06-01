@@ -1,6 +1,8 @@
 <h1>Main page</h1>
 <% @cars.each do |car| %>
-<p><%= "The model of the car: #{car.model} -  The year: #{car.year}"%>
-  <%= link_to 'delete', car_path(car), method: :delete %></p>
+<p><%= "The model of the car: #{car.model} - The year: #{car.year}"%>
+  <%= link_to 'delete', car_path(car), method: :delete %>
+    <%= link_to 'view', car_path(car) %>
+  </p>
 <% end %>
 <%= link_to 'Add car', new_car_path, class: 'btn btn-primary' %>

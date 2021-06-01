@@ -2,3 +2,12 @@
 <%= @car.km %>
 <%= @car.location %>
 <%= @car.year %>
+<h3>Rent this car !</h3>
+ <%= simple_form_for [@car, @rent] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :date %>
+        <%= f.input :time %>
+        <%= f.submit 'Rent your car', class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Home menu', root_path, class: 'btn btn-primary m-3' %>
+
