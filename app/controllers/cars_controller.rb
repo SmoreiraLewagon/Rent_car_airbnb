@@ -4,7 +4,6 @@ class CarsController < ApplicationController
 
   def home
     @cars = policy_scope(Car).order(created_at: :desc)
-
   end
 
   def show
@@ -21,7 +20,7 @@ class CarsController < ApplicationController
     @car.user = current_user
     authorize @car
     if @car.save
-      redirect_to root_path
+      redirect_to root_path, notice: "car created"
     else
       render :new
     end

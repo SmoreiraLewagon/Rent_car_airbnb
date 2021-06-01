@@ -67,3 +67,6 @@ gem 'devise'
 
 # lecture pundit lewagon for authorization
 gem 'pundit'
+
+# populating the db
+gem 'faker'
