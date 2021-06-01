@@ -1,2 +1,6 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Main page</h1>
+<% @cars.each do |car| %>
+<p><%= "The model of the car: #{car.model} -  The year: #{car.year}"%>
+  <%= link_to 'delete', car_path(car), method: :delete %></p>
+<% end %>
+<%= link_to 'Add car', new_car_path, class: 'btn btn-primary' %>
