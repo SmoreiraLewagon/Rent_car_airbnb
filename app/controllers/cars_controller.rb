@@ -1,8 +1,8 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show]
-
+  before_action :set_car, only: [:show, :destroy]
+  skip_before_action :authenticate_user!, only: :home
   def home
-    @car = Car.all
+    @cars = Car.all
   end
 
   def show
@@ -13,20 +13,20 @@ class CarsController < ApplicationController
     @car = Car.new
   end
 
-
-
-  def create
+ def create
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save
-      redirect_to car_path(@car)
+      redirect_to root_path
     else
       render :new
     end
   end
 
-
-
+  def destroy
+    @car.destroy
+    redirect_to root_path
+  end
 
   private
 
