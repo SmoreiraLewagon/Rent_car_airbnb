@@ -8,7 +8,8 @@
 
 require 'faker'
 Car.destroy_all
-User.destroy_all
+# the next line allow us to clean the user db
+# User.destroy_all
 
 puts 'Creating 20 fake cars...'
 first_user = User.create(user_name: 'Zezin', password: '123456', email: 'ze@ninguem.com')
