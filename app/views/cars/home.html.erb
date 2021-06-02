@@ -1,9 +1,11 @@
 <h1>Main page</h1>
 <%= link_to 'Add car', new_car_path, class: 'btn btn-primary' %>
+<p> <strong>   Model -   year</strong></p>
 
 <% @cars.each do |car| %>
-<p><%= "Model: #{car.model} - year: #{car.year}"%>
+<p><%= "#{car.model} - #{car.year}"%>
   <%= link_to 'delete', car_path(car), method: :delete %> |
   <%= link_to 'view', car_path(car) %>
   </p>
 <% end %>
+<div id= "map" >MAPA</div>
