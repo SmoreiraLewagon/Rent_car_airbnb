@@ -1,0 +1,7 @@
+<h2><%= car.model %></h2>
+<p><%= car.year %></p>
+<%if car.picture.attached?%>
+<%= cl_image_tag @car.picture.key, height: 100, width: 150, crop: :limit %>
+<% else %>
+<%= cl_image_tag("cljrhhc1oa9pnj9hcvv1", height: 100, width: 150, crop: :limit) %>
+<% end %>
