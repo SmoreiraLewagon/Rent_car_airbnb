@@ -70,3 +70,6 @@ gem 'pundit'
 
 # populating the db
 gem 'faker'
+
+# photos uploader
+gem 'cloudinary', '~> 1.16.0'
