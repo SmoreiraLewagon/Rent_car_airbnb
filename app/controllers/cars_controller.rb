@@ -4,6 +4,15 @@ class CarsController < ApplicationController
 
   def home
     @cars = policy_scope(Car).order(created_at: :desc)
+    @markers = @cars.geocoded.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { car: car }),
+        image_url: helpers.asset_url('logo.png')
+
+      }
+    end
   end
 
   def show

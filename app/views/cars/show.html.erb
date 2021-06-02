@@ -1,7 +1,19 @@
-<%= @car.model %>
-<%= @car.km %>
-<%= @car.location %>
-<%= @car.year %>
+<p>car model
+<%= @car.model %></p>
+
+<p>car km
+<%= @car.km %></p>
+
+<p>location
+<%= @car.location %></p>
+
+<p>year
+<%= @car.year %></p>
+
+<p>lat & log
+<strong><%= @car.latitude %></strong>
+<%= @car.longitude %></p>
+
 <%if @car.picture.attached?%>
 <%= cl_image_tag @car.picture.key, height: 300, width: 400, crop: :limit %>
 <% else %>
