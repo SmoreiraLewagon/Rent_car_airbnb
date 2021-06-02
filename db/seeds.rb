@@ -9,7 +9,7 @@
 require 'faker'
 Car.destroy_all
 # the next line allow us to clean the user db
-# User.destroy_all
+User.destroy_all
 
 puts 'Creating 20 fake cars...'
 first_user = User.create(user_name: 'Zezin', password: '123456', email: 'ze@ninguem.com')
@@ -19,7 +19,7 @@ first_user = User.create(user_name: 'Zezin', password: '123456', email: 'ze@ning
     year:    rand(1950..2021),
     km:    rand(12_000..180_000),
     location:    "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    user_id: first_user.id
+    user_id: first_user.id,
   )
   car.save!
   puts "#{car.id} #{car.model}"
