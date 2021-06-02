@@ -11,15 +11,16 @@ Car.destroy_all
 # the next line allow us to clean the user db
 User.destroy_all
 
-puts 'Creating 20 fake cars...'
+puts 'Creating 16 fake cars...'
 first_user = User.create(user_name: 'Zezin', password: '123456', email: 'ze@ninguem.com')
-20.times do
+16.times do
+  location = ['Leblon, Rio de Janeiro', 'Botafogo, Rio de Janeiro', 'Petropolis', 'Copacabana, Rio de Janeiro', 'Arpoador, Rio de Janeiro', 'Urca, Rio de Janeiro', 'Bangu, Rio de Janeiro']
   car = Car.new(
     model:    Faker::Vehicle.make_and_model,
     year:    rand(1950..2021),
     km:    rand(12_000..180_000),
-    location:    "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    user_id: first_user.id,
+    location: location.sample,
+    user_id: first_user.id
   )
   car.save!
   puts "#{car.id} #{car.model}"
