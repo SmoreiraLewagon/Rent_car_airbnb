@@ -4,6 +4,12 @@ class CarsController < ApplicationController
 
   def home
     @cars = policy_scope(Car).order(created_at: :desc)
+    @markers = @cars.geocoded.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude
+      }
+    end
   end
 
   def show
