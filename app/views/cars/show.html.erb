@@ -2,6 +2,13 @@
 <%= @car.km %>
 <%= @car.location %>
 <%= @car.year %>
+<%if @car.picture.attached?%>
+<%= cl_image_tag @car.picture.key, height: 300, width: 400, crop: :limit %>
+<% else %>
+<%= cl_image_tag("cljrhhc1oa9pnj9hcvv1", height: 300, width: 400, crop: :limit) %>
+<% end %>
+
+
 <h3>Rent this car !</h3>
  <%= simple_form_for [@car, @rent] do |f| %>
         <%= f.input :name %>
