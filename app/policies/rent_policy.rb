@@ -8,4 +8,8 @@ class RentPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def status?
+    record.user == user || user.admin?
+  end
 end

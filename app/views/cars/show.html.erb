@@ -2,6 +2,14 @@
 <%= @car.km %>
 <%= @car.location %>
 <%= @car.year %>
+<% if  @car.rents.last.nil? %>
+  <%= "No rents available" %>
+<% else  %>
+  <h3><%= @car.rents.last.status ? "Rent aproved" : " waiting for approval" %>
+  <%= link_to 'Approve or denied', status_path(@car.rents.last), method: :post, class: 'btn btn-primary m-3' %>
+  </h3>
+<% end %>
+
 <%if @car.picture.attached?%>
 <%= cl_image_tag @car.picture.key, height: 300, width: 400, crop: :limit %>
 <% else %>
@@ -17,4 +25,5 @@
         <%= f.submit 'Rent your car', class: 'btn btn-primary' %>
 <% end %>
 <%= link_to 'Home menu', root_path, class: 'btn btn-primary m-3' %>
+
 

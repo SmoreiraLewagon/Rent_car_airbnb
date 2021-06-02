@@ -5,4 +5,5 @@ class Car < ApplicationRecord
   validates :location, presence: true
   validates :km, presence: true
   has_one_attached :picture
+  has_many :rents
 end
