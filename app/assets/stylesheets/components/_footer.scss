@@ -1,19 +1,19 @@
 .footer {
     margin-top: 20px;
-    background: #ffca98;
+    background: #7a7070;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 150px;
     padding: 0px 50px;
-    color: black;
+    color: rgb(255, 255, 255);
   }
   .footer-links {
     display: flex;
     align-items: center;
   }
   .footer-links a {
-    color: black;
+    color: rgb(255, 255, 255);
     opacity: 0.9;
     text-decoration: none;
     font-size: 24px;
