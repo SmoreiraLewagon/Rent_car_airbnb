@@ -18,8 +18,8 @@ first_user = User.create(user_name: 'Zezin', password: '123456', email: 'ze@ning
 
 locations = ['Botafogo, Rio de Janeiro', 'Leblon, Rio de Janeiro', 'Humaitá, Rio de Janeiro', 'Copacabana, Rio de Janeiro',
             'Ipanema, Rio de Janeiro', 'Urca, Rio de Janeiro', 'Arpoador, Rio de Janeiro' ]
-models = [ 'Volkswagen Fusca 1.5 8v Gasolina 2p Manual', 'Chevrolet Onix HATCH 1.4 8V FLEXPOWER 5P manual', 'Fiat Uno Elx 1.0 2 Portas Manual', 'Peugeot 206 1.0 16v Quiksilver 3p', 'Volkswagen Gol 1.8 Mi Cl 8v Gasolina 2p Manual',
-            'Ford Ka 1.0 Manual', 'Volkswagen Kombi Cliper Manual Gasolina', 'Ford Fiesta 1.0', 'Lambreta Li 150', 'Kia Bongo 2.5 Std 4x2 Rs Turbo S/ Carroceria 2p']
+models = [ 'Volkswagen Fusca', 'Chevrolet Onix ', 'Fiat Uno Elx', 'Peugeot 206', 'Volkswagen Gol',
+            'Ford Ka', 'Volkswagen Kombi ', 'Ford Fiesta', 'Lambreta Li ', 'Kia Bongo']
 
 car_images = ['https://quatrorodas.abril.com.br/wp-content/uploads/2014/02/vw-super-fuscc3a3o-1600-s-1.jpeg',
             'https://http2.mlstatic.com/D_NQ_NP_846954-MLB45640268040_042021-O.webp',
