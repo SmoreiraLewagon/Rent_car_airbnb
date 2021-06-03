@@ -1,16 +1,22 @@
 // Specific CSS for your home-page
+
+body {
+  background-color: #EBEBEB;
+}
+
   #core {
     display: flex;
     margin-top: 30px;
 
   }
-  
+
   #sidemap {
     height: 150vh;
     position: sticky;
     top: 0;
   }
-  
+
   #sidecard {
     flex-grow: 1;
   }
+
