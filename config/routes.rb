@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     
   end
   post "/rents/:id/status", to: "rents#status", as: "status"
+  resources :rents, only: [:index]
+
   
 end

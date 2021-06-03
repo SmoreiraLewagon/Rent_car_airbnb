@@ -25,6 +25,17 @@ class RentsController < ApplicationController
     redirect_to car_path(@rent.car)
   end
 
+  def index 
+    if current_user.cars.present?
+      @owner = true
+      @rents = current_user.rents_as_owner
+    else
+      @owner = false
+      @rents = current_user.rents
+    end
+
+  end
+
   private
 
   def rent_params

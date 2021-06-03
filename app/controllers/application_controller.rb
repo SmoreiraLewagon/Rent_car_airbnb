@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:user_name])
   end
 
-  after_action :verify_authorized, except: :home, unless: :skip_pundit?
+  after_action :verify_authorized, except: [:home, :index], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :home, unless: :skip_pundit?
   
   private

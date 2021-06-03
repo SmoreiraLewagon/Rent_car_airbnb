@@ -20,6 +20,7 @@
 <% end %>
 
 
+
 <%if @car.picture.attached?%>
 <%= cl_image_tag @car.picture.key, height: 300, width: 400, crop: :limit %>
 <% else %>
