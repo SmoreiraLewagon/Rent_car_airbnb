@@ -11,7 +11,7 @@ body {
   }
 
   #sidemap {
-    height: 150vh;
+    height: 140vh;
     position: sticky;
     top: 0;
   }
@@ -20,3 +20,13 @@ body {
     flex-grow: 1;
   }
 
+.cont {
+  margin: 40px;
+}
+
+.name {
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  color: white;
+  size: 20px;
+   padding: 151px 16px;
+}

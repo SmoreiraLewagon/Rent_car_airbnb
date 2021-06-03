@@ -38,7 +38,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/dumania/ckpfriohw0lcy18k1us8tt3tk'
+      style: 'mapbox://styles/dumania/ckph5ye7g1r2l17lf7vlejr31'
     });
     
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
