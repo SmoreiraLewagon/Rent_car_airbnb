@@ -21,7 +21,10 @@ vehicles = [[ 'Fusca Volkswagen', 'fusca.jpg' ], [ 'Fiat uno', 'fusca.jpg' ], [ 
             [ 'Volkswagen', 'fusca.jpg' ], [ 'Kombi Volkswagen', 'fusca.jpg' ], [ 'Volkswagen', 'fusca.jpg' ], [ 'Volkswagen', 'fusca.jpg' ]]
 puts "Creating cars..."
 
-car = Car.create!(model: 'fusca', picture: "bv5byyvtdpfkoabkctrw72tp7zd4", year: 2021, km: 45, location: 'Rio de Janeiro', user_id: first_user.id )
+car = Car.create!(model: 'fusca', year: 2021, km: 450, location: 'Rio de Janeiro', user_id: first_user.id )
+car.picture = 'bv5byyvtdpfkoabkctrw72tp7zd4'
+puts car.model
+puts car.picture
 
 
 puts "Finished!"
