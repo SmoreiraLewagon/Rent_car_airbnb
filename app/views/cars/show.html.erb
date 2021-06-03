@@ -1,7 +1,16 @@
-<%= @car.model %>
-<%= @car.km %>
-<%= @car.location %>
-<%= @car.year %>
+
+<p>car model
+<%= @car.model %></p>
+
+<p>km<%= @car.km %></p>
+
+<p>location
+<%= @car.location %></p>
+
+<p>year<%= @car.year %></p>
+
+<p>Rate €<%= @car.daily_rate %> per hour</p>
+
 <% if  @car.rents.last.nil? %>
   <%= "No rents available" %>
 <% else  %>
@@ -10,6 +19,7 @@
   </h3>
 <% end %>
 
+
 <%if @car.picture.attached?%>
 <%= cl_image_tag @car.picture.key, height: 300, width: 400, crop: :limit %>
 <% else %>
@@ -17,7 +27,7 @@
 <% end %>
 
 
-<h3>Rent this car !</h3>
+<h3>Rent this one !</h3>
  <%= simple_form_for [@car, @rent] do |f| %>
         <%= f.input :name %>
         <%= f.input :date %>

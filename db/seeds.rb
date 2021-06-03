@@ -7,21 +7,46 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-Car.destroy_all
-# the next line allow us to clean the user db
-User.destroy_all
+require 'open-uri'
 
-puts 'Creating 20 fake cars...'
+puts "Cleaning database..."
+Rent.destroy_all
+Car.destroy_all
+User.destroy_all
+puts "Creating fake first user"
 first_user = User.create(user_name: 'Zezin', password: '123456', email: 'ze@ninguem.com')
-20.times do
-  car = Car.new(
-    model:    Faker::Vehicle.make_and_model,
-    year:    rand(1950..2021),
-    km:    rand(12_000..180_000),
-    location:    "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    user_id: first_user.id,
-  )
-  car.save!
-  puts "#{car.id} #{car.model}"
+
+locations = ['Botafogo, Rio de Janeiro', 'Leblon, Rio de Janeiro', 'Humaitá, Rio de Janeiro', 'Copacabana, Rio de Janeiro',
+            'Ipanema, Rio de Janeiro', 'Urca, Rio de Janeiro', 'Arpoador, Rio de Janeiro' ]
+models = [ 'Volkswagen Fusca 1.5 8v Gasolina 2p Manual', 'Chevrolet Onix HATCH 1.4 8V FLEXPOWER 5P manual', 'Fiat Uno Elx 1.0 2 Portas Manual', 'Peugeot 206 1.0 16v Quiksilver 3p', 'Volkswagen Gol 1.8 Mi Cl 8v Gasolina 2p Manual',
+            'Ford Ka 1.0 Manual', 'Volkswagen Kombi Cliper Manual Gasolina', 'Ford Fiesta 1.0', 'Lambreta Li 150', 'Kia Bongo 2.5 Std 4x2 Rs Turbo S/ Carroceria 2p']
+
+car_images = ['https://quatrorodas.abril.com.br/wp-content/uploads/2014/02/vw-super-fuscc3a3o-1600-s-1.jpeg',
+            'https://http2.mlstatic.com/D_NQ_NP_846954-MLB45640268040_042021-O.webp',
+            'https://http2.mlstatic.com/D_NQ_NP_913422-MLB45779341320_052021-O.webp',
+            'https://http2.mlstatic.com/D_NQ_NP_861510-MLB45704225506_042021-O.webp',
+            'https://http2.mlstatic.com/D_NQ_NP_709576-MLB45797530978_052021-O.webp',
+            'https://http2.mlstatic.com/D_NQ_NP_663421-MLB46204553530_052021-O.webp',
+            'https://s2.glbimg.com/lZ06g62IS67hm_VvbL0J5PJdrus=/0x0:620x413/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2020/B/S/FghADFTnuKeaPVLVAtFw/2020-03-19-volkswagen-e-bulli-concept-2020-1600-02.jpg',
+            'https://http2.mlstatic.com/D_NQ_NP_813429-MLB43928609919_102020-O.webp',
+            'https://http2.mlstatic.com/D_NQ_NP_982159-MLB45641376497_042021-O.webp',
+            'https://http2.mlstatic.com/D_NQ_NP_927856-MLB45855074197_052021-O.webp']
+
+
+puts "Creating fake cars"
+puts "It takes some time. Calm down..."
+count = 0
+models.each do |element|
+    car = Car.create!(model: element, year: rand(1990..2021), km: rand(50000..250000), location: locations.sample, daily_rate: rand(9..25), user_id: first_user.id )
+    file = open(car_images[count])
+    car.picture.attach(io: file, filename: 'some-image.jpg')
+    count +=1
 end
-puts 'Finished!'
+
+
+puts "Finished!"
+
+
+
+
+
