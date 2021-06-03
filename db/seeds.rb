@@ -18,17 +18,17 @@ first_user = User.create(user_name: 'Zezin', password: '123456', email: 'ze@ning
 
 locations = ['Botafogo, Rio de Janeiro', 'Leblon, Rio de Janeiro', 'Humaitá, Rio de Janeiro', 'Copacabana, Rio de Janeiro',
             'Ipanema, Rio de Janeiro', 'Urca, Rio de Janeiro', 'Arpoador, Rio de Janeiro' ]
-models = [ 'Volkswagen Fusca', 'Chevrolet Onix ', 'Fiat Uno Elx', 'Peugeot 206', 'Volkswagen Gol',
-            'Ford Ka', 'Volkswagen Kombi ', 'Ford Fiesta', 'Lambreta Li ', 'Kia Bongo']
+models = [ 'Volkswagen Fusca', 'Chevrolet Onix ', 'Fiat Uno Elx', 'Peugeot 206', 'Honda Civic',
+            'Porshe Taycan', 'Volkswagen Kombi ', 'Ferrari F12', 'Lambreta Li ', 'Kia Bongo']
 
 car_images = ['https://quatrorodas.abril.com.br/wp-content/uploads/2014/02/vw-super-fuscc3a3o-1600-s-1.jpeg',
             'https://http2.mlstatic.com/D_NQ_NP_846954-MLB45640268040_042021-O.webp',
             'https://http2.mlstatic.com/D_NQ_NP_913422-MLB45779341320_052021-O.webp',
             'https://http2.mlstatic.com/D_NQ_NP_861510-MLB45704225506_042021-O.webp',
-            'https://http2.mlstatic.com/D_NQ_NP_709576-MLB45797530978_052021-O.webp',
-            'https://http2.mlstatic.com/D_NQ_NP_663421-MLB46204553530_052021-O.webp',
+            'https://www.revistafullpower.com.br/wp-content/uploads/2020/11/ci01.jpg',
+            'https://cdn-motorshow-ssl.akamaized.net/wp-content/uploads/sites/2/2020/07/pbr20_0068_fine.jpg',
             'https://s2.glbimg.com/lZ06g62IS67hm_VvbL0J5PJdrus=/0x0:620x413/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2020/B/S/FghADFTnuKeaPVLVAtFw/2020-03-19-volkswagen-e-bulli-concept-2020-1600-02.jpg',
-            'https://http2.mlstatic.com/D_NQ_NP_813429-MLB43928609919_102020-O.webp',
+            'https://s2.glbimg.com/1ZfjKbPhwmMVFeJzVHKFwRCWX2Q=/0x0:620x400/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2020/Z/W/S6TDHHTmaxBJK7OB3A5g/2015-07-27-ferrarif12berlinetta-4541-3.jpg',
             'https://http2.mlstatic.com/D_NQ_NP_982159-MLB45641376497_042021-O.webp',
             'https://http2.mlstatic.com/D_NQ_NP_927856-MLB45855074197_052021-O.webp']
 
