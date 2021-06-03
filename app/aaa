@@ -1,0 +1,10 @@
+vehicles.each do |element|
+  car = Car.create!(model: element.model, picture: element.photo, year: rand(1950..2021), km: rand(12_000..180_000), lotation: locations.sample, user_id: first_user.id )
+  puts "Created #{car.id} - #{car.model}"
+end
+
+
+vehicles.each do |element|
+  car = Car.create!(model: element[0], picture: element[1], year: rand(1950..2021), km: rand(12_000..180_000), location: locations.sample, user_id: first_user.id )
+  puts "Created #{car.id} - #{car.model}"
+end
