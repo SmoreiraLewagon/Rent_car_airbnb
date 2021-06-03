@@ -7,7 +7,7 @@
     <h3> Model - <%=  rent.car.model %> <br>
     Status - <%=  rent.status ? "Rent aproved" : " waiting for approval"   %></h3>
     <% if @owner && !rent.status %>
-      <%= link_to 'Approve or denied', status_path(rent), method: :post, class: 'btn btn-primary m-3' %>
+      <%= link_to 'Approve', status_path(rent), method: :post, class: 'btn btn-primary m-3' %>
 
     <% end %>
 

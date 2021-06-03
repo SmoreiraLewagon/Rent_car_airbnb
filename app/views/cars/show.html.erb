@@ -11,15 +11,6 @@
 
 <p>Rate €<%= @car.daily_rate %> per hour</p>
 
-<% if  @car.rents.last.nil? %>
-  <%= "No rents available" %>
-<% else  %>
-  <h3><%= @car.rents.last.status ? "Rent aproved" : " waiting for approval" %>
-  <%= link_to 'Approve or denied', status_path(@car.rents.last), method: :post, class: 'btn btn-primary m-3' %>
-  </h3>
-<% end %>
-
-
 
 <%if @car.picture.attached?%>
 <%= cl_image_tag @car.picture.key, height: 300, width: 400, crop: :limit %>
