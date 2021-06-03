@@ -3,5 +3,10 @@ Rails.application.routes.draw do
   root to: 'cars#home'
   resources :cars, only: [:show, :new, :create, :destroy] do
     resources :rents, only: [:create]
+    
   end
+  post "/rents/:id/status", to: "rents#status", as: "status"
+  resources :rents, only: [:index]
+
+  
 end

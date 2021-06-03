@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_165046) do
   create_table "rents", force: :cascade do |t|
     t.text "car_review"
     t.text "user_review"
-    t.string "status"
+    t.boolean "status"
     t.bigint "user_id", null: false
     t.bigint "car_id", null: false
     t.datetime "created_at", precision: 6, null: false

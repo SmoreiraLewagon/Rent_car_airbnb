@@ -7,6 +7,9 @@ class Car < ApplicationRecord
   validates :daily_rate, presence: true
 
   has_one_attached :picture
+  has_many :rents
+
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
 end
