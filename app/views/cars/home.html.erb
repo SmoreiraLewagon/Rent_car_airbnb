@@ -33,7 +33,6 @@
         <div class="cards">
           <% @cars.each do |car| %>
             <div class="card" style="width: 20rem;">
-                <!--<img class="card-img-top" src="https://m.extra.globo.com/incoming/17357332-fa6-89f/w488h275-PROP/capa-de-carro.jpg" alt="Card image cap">-->
                   <%if car.picture.attached?%>
                   <%= cl_image_tag car.picture.key, height: 300, width: 400, crop: :limit, class: "card-img-top" %>
                   <% else %>
