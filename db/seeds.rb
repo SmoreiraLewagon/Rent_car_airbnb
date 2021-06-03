@@ -37,8 +37,13 @@ puts "Creating fake cars"
 puts "It takes some time. Calm down..."
 count = 0
 models.each do |element|
+<<<<<<< HEAD
     car = Car.create!(model: element, year: rand(1990..2021), km: rand(50000..250000), location: locations.sample, user_id: first_user.id )
 
+=======
+    car = Car.create!(model: element, year: rand(1990..2021), km: rand(50000..250000), location: locations.sample, daily_rate: rand(9..25), user_id: first_user.id )
+    
+>>>>>>> master
     file = open(car_images[count])
     car.picture.attach(io: file, filename: 'some-image.jpg')
     count +=1
