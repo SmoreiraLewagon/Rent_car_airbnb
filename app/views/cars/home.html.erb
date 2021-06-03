@@ -27,29 +27,21 @@
 </div>
 
 
-<div class="container mr-0">
+<div class="container mr-0 ml-1">
   <div id="core" class="row">
     <div id="sidecard" class="col-12 col-lg-8">
         <div class="cards">
           <% @cars.each do |car| %>
-            <div class="card" style="width: 20rem;">
-                <!--<img class="card-img-top" src="https://m.extra.globo.com/incoming/17357332-fa6-89f/w488h275-PROP/capa-de-carro.jpg" alt="Card image cap">-->
-                  <%if car.picture.attached?%>
-                  <%= cl_image_tag car.picture.key, height: 300, width: 400, crop: :limit, class: "card-img-top" %>
-                  <% else %>
-                  <%= cl_image_tag("cljrhhc1oa9pnj9hcvv1", height: 300, width: 400, crop: :limit, class: "card-img-top") %>
-                  <% end %>
-                 <div class="card-body border-top">
-                  <div class="d-flex justify-content-between align-items-flex-end">
-                    <div>
-                      <h5 class="card-title"><%= car.model %></h5>
-                      <p class="card-text"><%="#{car.year} with #{car.km} km"%>
-                    </div>
-                      <div>
-                      <%= link_to 'rent', car_path(car), class: "btn btn-outline-secondary"%>
-                      </div>
-                    </p>
-                  </div>
+            <%if car.picture.attached?%>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path car.picture.key %>);">
+
+            <% else %>
+               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path("cljrhhc1oa9pnj9hcvv1") %>);">
+
+            <% end %>
+                <div class="container">
+                    <%= car.model %>
+                    <%= link_to 'view', car_path(car) %>
                 </div>
               </div>
             <% end %>

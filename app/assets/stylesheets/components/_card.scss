@@ -17,6 +17,7 @@
   width: 200px;
   border-radius: 20px;
   object-fit: cover;
+  background-size: cover;
 }
 
 .card-product h2 {
@@ -36,3 +37,14 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+.card {
+  border-width: 2px;
+  border-color: #F19833;
+  width: 300px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+
