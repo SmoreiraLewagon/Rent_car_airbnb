@@ -7,22 +7,26 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-Car.destroy_all
-# the next line allow us to clean the user db
-User.destroy_all
 
-puts 'Creating 16 fake cars...'
+puts "Cleaning database..."
+Car.destroy_all
+User.destroy_all
+puts "Creating fake first user"
 first_user = User.create(user_name: 'Zezin', password: '123456', email: 'ze@ninguem.com')
-16.times do
-  location = ['Leblon, Rio de Janeiro', 'Botafogo, Rio de Janeiro', 'Petropolis', 'Copacabana, Rio de Janeiro', 'Arpoador, Rio de Janeiro', 'Urca, Rio de Janeiro', 'Bangu, Rio de Janeiro']
-  car = Car.new(
-    model:    Faker::Vehicle.make_and_model,
-    year:    rand(1950..2021),
-    km:    rand(12_000..180_000),
-    location: location.sample,
-    user_id: first_user.id
-  )
-  car.save!
-  puts "#{car.id} #{car.model}"
-end
-puts 'Finished!'
+locations = ['Leblon, Rio de Janeiro', 'Botafogo, Rio de Janeiro', 'Humaitá, Rio de Janeiro', 'Copacabana, Rio de Janeiro', 'Arpoador, Rio de Janeiro', 'Urca, Rio de Janeiro', 'Bangu, Rio de Janeiro', 'Ipanema, Rio de Janeiro']
+
+vehicles = [[ 'Fusca Volkswagen', 'fusca.jpg' ], [ 'Fiat uno', 'fusca.jpg' ], [ 'Volkswagen', 'fusca.jpg' ], [ 'Volkswagen', 'fusca.jpg' ],
+            [ 'Volkswagen', 'fusca.jpg' ], [ 'Volkswagen', 'fusca.jpg' ], [ 'Volkswagen', 'fusca.jpg' ], [ 'Volkswagen', 'fusca.jpg' ],
+            [ 'Volkswagen', 'fusca.jpg' ], [ 'Volkswagen', 'fusca.jpg' ], [ 'Volkswagen', 'fusca.jpg' ],[ 'Volkswagen', 'fusca.jpg' ],
+            [ 'Volkswagen', 'fusca.jpg' ], [ 'Kombi Volkswagen', 'fusca.jpg' ], [ 'Volkswagen', 'fusca.jpg' ], [ 'Volkswagen', 'fusca.jpg' ]]
+puts "Creating cars..."
+
+car = Car.create!(model: 'fusca', picture: "bv5byyvtdpfkoabkctrw72tp7zd4", year: 2021, km: 45, location: 'Rio de Janeiro', user_id: first_user.id )
+
+
+puts "Finished!"
+
+
+
+
+
