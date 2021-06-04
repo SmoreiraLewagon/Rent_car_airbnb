@@ -1,31 +1,37 @@
+<div >
+  <p>car model
+  <%= @car.model %></p>
 
-<p>car model
-<%= @car.model %></p>
+  <p>km<%= @car.km %></p>
 
-<p>km<%= @car.km %></p>
+  <p>location
+  <%= @car.location %></p>
 
-<p>location
-<%= @car.location %></p>
+  <p>year<%= @car.year %></p>
 
-<p>year<%= @car.year %></p>
-
-<p>Rate €<%= @car.daily_rate %> per hour</p>
-
-
-<%if @car.picture.attached?%>
-<%= cl_image_tag @car.picture.key, height: 300, width: 400, crop: :limit %>
-<% else %>
-<%= cl_image_tag("cljrhhc1oa9pnj9hcvv1", height: 300, width: 400, crop: :limit) %>
-<% end %>
+  <p>Rate €<%= @car.daily_rate %> per hour</p>
 
 
-<h3>Rent this one !</h3>
- <%= simple_form_for [@car, @rent] do |f| %>
-        <%= f.input :name %>
-        <%= f.input :date %>
-        <%= f.input :time %>
-        <%= f.submit 'Rent your car', class: 'btn btn-primary' %>
-<% end %>
-<%= link_to 'Home menu', root_path, class: 'btn btn-primary m-3' %>
+  <%if @car.picture.attached?%>
+  <%= cl_image_tag @car.picture.key, height: 300, width: 400, crop: :limit %>
+  <% else %>
+  <%= cl_image_tag("cljrhhc1oa9pnj9hcvv1", height: 300, width: 400, crop: :limit) %>
+  <% end %>
 
+
+  <div class="col-12 col-lg-4">
+    <div class="container">
+      <h3>Rent this one !</h3>
+      <%= simple_form_for [@car, @rent] do |f| %>
+              <%= f.input :name %>
+              <%= f.input :date %>
+              <%= f.input :time %>
+              <%= f.submit 'Rent your car', class: 'btn btn-primary' %>
+      <% end %>
+      <%= link_to 'Home menu', root_path, class: 'btn btn-primary m-3' %>
+    </div>
+    
+  </div>
+
+</div>
 

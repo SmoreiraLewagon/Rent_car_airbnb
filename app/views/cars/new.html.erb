@@ -1,8 +1,12 @@
-<%= simple_form_for(@car) do |f| %>
-  <%= f.input :model %>
-  <%= f.input :year %>
-  <%= f.input :km %>
-  <%= f.input :location %>
-  <%= f.input :picture, as: :file %>
-  <%= f.submit %>
-<% end %>
+<div class="col-12 col-lg-4">
+  <div class="container">
+    <%= simple_form_for(@car) do |f| %>
+      <%= f.input :model %>
+      <%= f.input :year %>
+      <%= f.input :km %>
+      <%= f.input :location %>
+      <%= f.input :picture, as: :file %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
