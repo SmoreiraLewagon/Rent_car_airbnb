@@ -4,7 +4,7 @@ class Car < ApplicationRecord
   validates :year, presence: true
   validates :location, presence: true
   validates :km, presence: true
-  validates :daily_rate, presence: true
+  # validates :daily_rate, presence: true
 
   has_one_attached :picture
   has_many :rents
