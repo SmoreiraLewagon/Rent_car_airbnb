@@ -1,37 +1,36 @@
-<div >
-  <p>car model
-  <%= @car.model %></p>
-
-  <p>km<%= @car.km %></p>
-
-  <p>location
-  <%= @car.location %></p>
-
-  <p>year<%= @car.year %></p>
-
-  <p>Rate €<%= @car.daily_rate %> per hour</p>
-
-
-  <%if @car.picture.attached?%>
-  <%= cl_image_tag @car.picture.key, height: 300, width: 400, crop: :limit %>
-  <% else %>
-  <%= cl_image_tag("cljrhhc1oa9pnj9hcvv1", height: 300, width: 400, crop: :limit) %>
-  <% end %>
-
-
-  <div class="col-12 col-lg-4">
-    <div class="container">
-      <h3>Rent this one !</h3>
-      <%= simple_form_for [@car, @rent] do |f| %>
-              <%= f.input :name %>
-              <%= f.input :date %>
-              <%= f.input :time %>
-              <%= f.submit 'Rent your car', class: 'btn btn-primary' %>
+<div class="all" style="margin-top: 50px; margin-bottom: 40px;">
+  <div class="card-product">
+     <%if @car.picture.attached?%>
+        <%= cl_image_tag @car.picture.key, height: 300, width: 400, crop: :limit %>
+        <% else %>
+        <%= cl_image_tag("cljrhhc1oa9pnj9hcvv1", height: 300, width: 400, crop: :limit) %>
       <% end %>
-      <%= link_to 'Home menu', root_path, class: 'btn btn-primary m-3' %>
+    <div class="card-product-infos">
+       <h2><%= @car.model %></h2>
+
+      <p><%= @car.km %> km </p>
+
+      <p>Situated at: <%= @car.location %></p>
+
+      <p>Porduced in: <%= @car.year %></p>
+
+      <p>Price: <%= @car.daily_rate %>$ per hour</p>
     </div>
-    
   </div>
 
+
+    <div class="col-12" style="margin: 0 auto; background: white; width: 600px">
+      <div class="container">
+        <h3>Rent this car !</h3>
+        <%= simple_form_for [@car, @rent] do |f| %>
+                <%= f.input :name %>
+                <%= f.input :date %>
+                <%= f.input :time %>
+                <%= f.submit 'Rent your car', class: 'btn btn-warning' %>
+        <% end %>
+        <%= link_to 'Home menu', root_path, class: 'btn btn-warning m-3' %>
+      </div>
+
+    </div>
 </div>
 
