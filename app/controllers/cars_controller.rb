@@ -3,7 +3,12 @@ class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @cars = policy_scope(Car).order(created_at: :desc)
+    if params[:query].present?
+      @cars = policy_scope(Car.search_by_model_and_year_and_location(params[:query])).order(created_at: :desc)
+    else
+      @cars = policy_scope(Car).order(created_at: :desc)
+    end
+
     @markers = @cars.geocoded.map do |car|
       {
         lat: car.latitude,
