@@ -26,28 +26,102 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="row justify-content-center py-5 my-5"> 
+    <div class="col-6 modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <h1 py-5>How it works?</h1> 
+      <h3 py-5>Here it´s all about people. We are an online marketplace to list, discover, and rent a car in a simple way, so that you can focus on
+      what is really important: Going anywhere!</h3>
+    </div>
+    <div class="col-6"><img src="https://carupi.com/static/range-rover-how-it-works-0238fb341a336f923241255bdffe2b2a.webp" class="rounded" alt="..."></div>
+  </div>
+</div>
+
+<div class= 'container border-bottom border-top border-warning py-5 my-5'>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3500">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner align-items-center">
+      <div class="carousel-item active">
+        <div class="row justify-content-center">
+          <div class="col-6 "><img src="https://image.freepik.com/fotos-gratis/jovem-bonito-feliz-dirigindo-carro-imagem-de-mulher-jovem-e-bonita-dirigindo-um-carro-e-sorrindo-retrato-do-carro-de-direcao-feliz-motorista-do-sexo-feminino-com-cinto-de-seguranca-na_1212-2206.jpg" class="d-block w-100 h-110" alt="..."></div>
+          <div class="col-6  modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <h1 style="padding: 20px 0 0 0">The best experience I had ever had!</h1>
+            <p>Renata Guimarães - Rio de Janeiro/RJ</p>
+            <p style="color:yellow;font-size:50px">&bigstar; &bigstar; &bigstar; &bigstar; &bigstar;</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row justify-content-center">
+          <div class="col-6"><img src="http://st.depositphotos.com/1011382/2842/i/450/depositphotos_28423123-happy-driver.jpg" class="d-block w-100" alt="..."></div>
+          <div class="col-6  modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <h1 style="padding: 20px 0 0 0">Simple as it should be.</h1>
+            <p>Paula Amorim - Salvador/BA</p>
+            <p style="color:yellow;font-size:50px">&bigstar; &bigstar; &bigstar; &bigstar; &bigstar;</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row justify-content-center">
+          <div class="col-6"><img src="https://image.freepik.com/free-photo/happy-young-male-driver-wheel_136930-4.jpg" class="d-block w-100" alt="..."></div>
+          <div class="col-6 modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <h1 style="padding: 20px 0 0 0">Highly recommended!</h1>
+            <p>Felipe Teixeira - São Paulo/SP </p>
+            <p style="color:yellow;font-size:50px">&bigstar; &bigstar; &bigstar; &bigstar; &bigstar;</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+    </a>
+    
+  </div>
+
+</div>
+
 
 <div class="cont">
   <div id="core" class="row">
     <div id="sidecard" class="col-12 col-lg-8">
-        <div class="cards">
-          <% @cars.each do |car| %>
-            <%= link_to car do %>
+
+      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <div class="search-form-control form-group">
+          <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+          <button name="button" type="submit" class="btn btn-warning">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      <% end %>
+
+      <div class="cards">
+        <% @cars.each do |car| %>
+          <%= link_to car do %>
             <%if car.picture.attached?%>
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path car.picture.key %>);">
-
             <% else %>
-               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path("cljrhhc1oa9pnj9hcvv1") %>);">
-
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path("cljrhhc1oa9pnj9hcvv1") %>);">
             <% end %>
-                <div class="name">
-                    <%= car.model %>
-                </div>
-              </div>
-              <% end %>
-            <% end %>
-        </div>
+            <div class="name mb-5">
+              <%= car.model %>
+            </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
+    </div>
     <div id="sidemap"class="col-12 col-lg-4">
       <div id= "map" style="width: 100%; height: 760px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>

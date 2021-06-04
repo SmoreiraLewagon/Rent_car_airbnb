@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #7a7070;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,6 +11,15 @@
   width: 40px;
 }
 
+.navbar-lewagon .navbar-nav {
+  align-items: center;
+}
+
  a:hover {
   color: #F19833;
+}
+
+.tururu{
+  color: rgb(255, 255, 255);
+  padding: 8px;
 }
