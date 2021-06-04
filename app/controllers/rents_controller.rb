@@ -22,7 +22,7 @@ class RentsController < ApplicationController
       @rent.status = false
     end
     @rent.save
-    redirect_to car_path(@rent.car)
+    redirect_to rents_path
   end
 
   def index 

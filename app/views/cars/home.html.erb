@@ -110,7 +110,7 @@
         <% @cars.each do |car| %>
           <%= link_to car do %>
             <%if car.picture.attached?%>
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path car.picture.key %>);">
+              <div id="card_home" class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path car.picture.key %>);">
             <% else %>
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path("cljrhhc1oa9pnj9hcvv1") %>);">
             <% end %>

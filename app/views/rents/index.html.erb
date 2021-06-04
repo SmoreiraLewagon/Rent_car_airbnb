@@ -1,23 +1,26 @@
-<h1>              My Cars                  </h1>
-
-<% if  @rents.empty? %>
-  <h2>No rents available</h2>
-<% else  %>
-  <% @rents.each do |rent| %>
-    <div class="container">
-      <div class="card-product-index">
-        <%= cl_image_tag rent.car.picture.key, height: 300, width: 400, crop: :limit %>
-        <div class="card-product-infos">
-          <h2> Model - <%=  rent.car.model %></h2>
-          <h2>Year - <%=  rent.car.year %> </h2>
-          <p>Status - <%=  rent.status ? "Rent aproved" : " waiting for approval"   %></p>
-          <% if @owner && !rent.status %>
-            <p><%= link_to 'Approve', status_path(rent), method: :post, class: 'btn btn-primary m-3' %></p>
-          <% end %>
-
-        </div>
-      </div>
-    </div>
+<div>
+    <h1 style="text-align:center" >              My Cars                  </h1>
+  <% if  @rents.empty? %>
+    <h2>No rents available</h2>
+  <% else  %>
+  <div class="container cards pb-2">
+    <% @rents.each do |rent| %>
+          <div class="card" style="width: 25rem">
+            <%= cl_image_tag rent.car.picture.key %>
+            <div class="card-body">
+              <% if @owner && !rent.status %>
+                <h5 class="card-title">Client - <%=  rent.user.user_name %></h5>
+                <h5 class="card-title">Mail - <%=  rent.user.email%></h5>
+              <% end %>
+              <h5 class="card-title">Model - <%=  rent.car.model %></h5> 
+              <h5 class="card-title">Location - <%=  rent.car.location %></h5>
+              <p class="card-text">Status - <%=  rent.status ? "Rent aproved" : " waiting for approval"   %></p>
+              <% if @owner && !rent.status %>
+              <p><%= link_to 'Approve', status_path(rent), method: :post, class: 'btn btn-primary m-3' %></p>
+              <% end %>
+            </div>  
+          </div>
+    <% end %>
+  </div>
   <% end %>
-
-<% end %>
+</div>

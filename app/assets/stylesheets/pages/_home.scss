@@ -3,6 +3,12 @@
 body {
   background-color: #EBEBEB;
   font-size: 20px;
+  margin: 0 0 100px; 
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
 
   #core {
