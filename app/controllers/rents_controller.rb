@@ -7,7 +7,7 @@ class RentsController < ApplicationController
     @rent.status = false
     authorize @rent
     if @rent.save
-      redirect_to car_path(@car), notice: "You rented the car"
+      redirect_to rents_path, notice: "You rented the car"
     else
       render 'cars/show'
     end

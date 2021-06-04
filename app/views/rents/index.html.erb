@@ -1,17 +1,23 @@
-
+<h1>              My Cars                  </h1>
 
 <% if  @rents.empty? %>
-  <p>No rents available</p>
+  <h2>No rents available</h2>
 <% else  %>
   <% @rents.each do |rent| %>
-    <h3> Model - <%=  rent.car.model %> <br>
-    Status - <%=  rent.status ? "Rent aproved" : " waiting for approval"   %></h3>
-    <% if @owner && !rent.status %>
-      <%= link_to 'Approve or denied', status_path(rent), method: :post, class: 'btn btn-primary m-3' %>
+    <div class="container">
+      <div class="card-product-index">
+        <%= cl_image_tag rent.car.picture.key, height: 300, width: 400, crop: :limit %>
+        <div class="card-product-infos">
+          <h2> Model - <%=  rent.car.model %></h2>
+          <h2>Year - <%=  rent.car.year %> </h2>
+          <p>Status - <%=  rent.status ? "Rent aproved" : " waiting for approval"   %></p>
+          <% if @owner && !rent.status %>
+            <p><%= link_to 'Approve', status_path(rent), method: :post, class: 'btn btn-primary m-3' %></p>
+          <% end %>
 
-    <% end %>
-
-
+        </div>
+      </div>
+    </div>
   <% end %>
 
 <% end %>
