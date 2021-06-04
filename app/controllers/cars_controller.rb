@@ -5,6 +5,7 @@ class CarsController < ApplicationController
   def home
     if params[:query].present?
       @cars = policy_scope(Car.search_by_model_and_year_and_location(params[:query])).order(created_at: :desc)
+      
     else
       @cars = policy_scope(Car).order(created_at: :desc)
     end
@@ -17,6 +18,7 @@ class CarsController < ApplicationController
         image_url: helpers.asset_url("car_icon.png")
       }
     end
+
   end
 
   def show
